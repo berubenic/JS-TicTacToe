@@ -12,7 +12,10 @@ const gameBoard = (function () {
 // Player factory
 
 const playerFactory = (name, type) => {
-  return { name, type };
+  const changeName = function (newName) {
+    this.name = newName;
+  };
+  return { name, type, changeName: changeName };
 };
 
 // Default players
