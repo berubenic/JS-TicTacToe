@@ -11,11 +11,26 @@ const gameBoard = (function () {
 
 // Player factory
 
-const Player = (name, type) => {
+const playerFactory = (name, type) => {
   return { name, type };
 };
 
 // Default players
 
-const playerOne = new Player("Player One", "X");
-const playerTwo = new Player("Player Two", "O");
+const playerOne = playerFactory("Player One", "X");
+const playerTwo = playerFactory("Player Two", "O");
+
+// Display module
+
+const displayController = (function () {
+  const displayPlayerNames = function () {
+    const playerOneHeader = document.getElementById("player_one");
+    const playerTwoHeader = document.getElementById("player_two");
+    playerOneHeader.appendChild(document.createTextNode(playerOne.name));
+    playerTwoHeader.appendChild(document.createTextNode(playerTwo.name));
+  };
+
+  return { displayPlayerNames: displayPlayerNames };
+})();
+
+displayController.displayPlayerNames();
