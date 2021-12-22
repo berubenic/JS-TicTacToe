@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Tic Tac Toe</h1>
+    <h1 class="title">Tic Tac Toe</h1>
     <div class="form-popup" id="change_name_form_container">
       <label for="name"
         >Name:
@@ -23,10 +23,16 @@
       <button id="submit_change_name_btn">Change Name</button>
       <button id="cancel_change_name_btn">Cancel</button>
     </div>
-    <h2 id="player_one">Player One</h2>
-    <button id="player_one_change_name_btn">Change Player One name</button>
-    <h2 id="player_two">Player Two</h2>
-    <button id="player_two_change_name_btn">Change Player Two name</button>
+    <div class="player-info-container">
+      <div class="player-card">
+        <h2 id="player_one">Player One</h2>
+        <button id="player_one_change_name_btn">Change Player One name</button>
+      </div>
+      <div class="player-card">
+        <h2 id="player_two">Player Two</h2>
+        <button id="player_two_change_name_btn">Change Player Two name</button>
+      </div>
+    </div>
 
     <h2 id="game_announcement"></h2>
     <div class="game-container" id="game_container">
@@ -45,6 +51,9 @@
         <div class="cell"></div>
         <div class="cell"></div>
       </div>
+    </div>
+    <div class="game-options-container">
+      <button class="button reset" id="reset_game_btn">Reset Game</button>
     </div>
     <script src="script.js"></script>
   </body>

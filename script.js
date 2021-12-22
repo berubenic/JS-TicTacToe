@@ -3,7 +3,7 @@
 const gameBoard = (function () {
   let board = document.querySelectorAll(".row");
 
-  return { board, addPlayToBoard };
+  return { board, addPlayToBoard, resetBoard };
 
   function addPlayToBoard(cell) {
     let player = gameController.currentPlayer();
@@ -18,6 +18,16 @@ const gameBoard = (function () {
       return gameController.gameTie();
     }
     gameController.changeTurn();
+  }
+
+  function resetBoard() {
+    for (let rowIndex = 0; rowIndex < board.length; rowIndex++) {
+      let cells = board[rowIndex].children;
+      for (let cellIndex = 0; cellIndex < cells.length; cellIndex++) {
+        cells[cellIndex].innerHTML = "";
+      }
+    }
+    gameController.resetPlayerTurn();
   }
 
   function _isTie() {
@@ -123,7 +133,18 @@ const gameController = (function () {
   let playerTurn = 1;
   let announcementHeader = document.getElementById("game_announcement");
 
-  return { currentPlayer, gameTie, gameWon, changeTurn };
+  return {
+    currentPlayer,
+    gameTie,
+    gameWon,
+    changeTurn,
+    resetPlayerTurn,
+  };
+
+  function resetPlayerTurn() {
+    playerTurn = 1;
+    announcementHeader.innerHTML = "";
+  }
 
   function currentPlayer() {
     if (playerTurn === 1) {
@@ -231,3 +252,7 @@ const submitChangeNameBtn = document
     }
   }
 })();
+
+const resetGameBtn = document
+  .getElementById("reset_game_btn")
+  .addEventListener("click", gameBoard.resetBoard);
