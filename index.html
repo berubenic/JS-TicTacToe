@@ -1,26 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>HTML 5 Boilerplate</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <h1>Tic Tac Toe</h1>
-    <div class= 'form-popup'id = 'change_name_form_container'>
-      <label for="name">Name: 
-        <input type="text" name="Name" id="name" placeholder="Name">
+    <div class="form-popup" id="change_name_form_container">
+      <label for="name"
+        >Name:
+        <input type="text" name="Name" id="name" placeholder="Name" />
       </label>
-      <input type="hidden" id='change_name_player_number' name='playerNumber' value=''>
+      <input
+        type="hidden"
+        id="change_name_player_number"
+        name="playerNumber"
+        value=""
+      />
       <button id="submit_change_name_btn">Change Name</button>
-      <button id='cancel_change_name_btn'>Cancel</button>
+      <button id="cancel_change_name_btn">Cancel</button>
     </div>
-    <h2 id = 'player_one'>Player One</h2>
-    <button id = 'player_one_change_name_btn'>Change Player One name</button>
-    <h2 id = 'player_two'>Player Two</h2>
-    <button id = 'player_two_change_name_btn'>Change Player Two name</button>
-	<script src="script.js"></script>
+    <h2 id="player_one">Player One</h2>
+    <button id="player_one_change_name_btn">Change Player One name</button>
+    <h2 id="player_two">Player Two</h2>
+    <button id="player_two_change_name_btn">Change Player Two name</button>
+
+    <div class="game-container" id="game_container">
+      <div class="row" id="top_row">
+        <div class="cell">x</div>
+        <div class="cell">x</div>
+        <div class="cell">x</div>
+      </div>
+      <div class="row" id="mid_row">
+        <div class="cell">x</div>
+        <div class="cell">x</div>
+        <div class="cell">x</div>
+      </div>
+      <div class="row" id="bottom_row">
+        <div class="cell">x</div>
+        <div class="cell">x</div>
+        <div class="cell">x</div>
+      </div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>

@@ -1,11 +1,7 @@
 // Board module
 
 const gameBoard = (function () {
-  let board = [
-    ["", "", ""],
-    ["", "", ""],
-    ["", "", ""],
-  ];
+  let board = document.querySelectorAll(".row");
   return { board };
 })();
 
@@ -61,6 +57,7 @@ const displayController = (function () {
 
     playerOneHeader.innerHTML = playerOne.name;
     playerTwoHeader.innerHTML = playerTwo.name;
+    hideChangeNameForm();
   }
 })();
 
@@ -70,14 +67,31 @@ const changePlayerOneNameBtn = document
   .addEventListener("click", function () {
     displayController.displayChangeNameForm(1);
   });
+
 const changePlayerTwoNameBtn = document
   .getElementById("player_two_change_name_btn")
   .addEventListener("click", function () {
     displayController.displayChangeNameForm(2);
   });
+
 const cancelChangeNameBtn = document
   .getElementById("cancel_change_name_btn")
   .addEventListener("click", displayController.hideChangeNameForm);
+
 const submitChangeNameBtn = document
   .getElementById("submit_change_name_btn")
   .addEventListener("click", displayController.updatePlayerName);
+
+(function eventListeners() {
+  let board = gameBoard.board;
+  for (let rowIndex = 0; rowIndex < board.length; rowIndex++) {
+    let row = board[rowIndex];
+    let cells = row.children;
+    for (let cellIndex = 0; cellIndex < cells.length; cellIndex++) {
+      let cell = cells[cellIndex];
+      cells[cellIndex].addEventListener("click", function () {
+        addPlayToBoard(cell, rowIndex, cellIndex);
+      });
+    }
+  }
+})();
