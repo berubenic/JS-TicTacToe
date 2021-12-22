@@ -12,16 +12,13 @@ const gameBoard = (function () {
 // Player factory
 
 const playerFactory = (name, type) => {
-  const changeName = function (newName) {
-    this.name = newName;
-  };
-  return { name, type, changeName: changeName };
+  return { name, type };
 };
 
 // Default players
 
-const playerOne = playerFactory("Player One", "X");
-const playerTwo = playerFactory("Player Two", "O");
+let playerOne = playerFactory("Player One", "X");
+let playerTwo = playerFactory("Player Two", "O");
 
 // display module
 
@@ -29,7 +26,23 @@ const displayController = (function () {
   return {
     displayChangeNameForm,
     hideChangeNameForm,
+    updatePlayerName,
   };
+
+  function updatePlayerName() {
+    let name = document.getElementById("name").value;
+    let playerNumber = document.getElementById(
+      "change_name_player_number"
+    ).value;
+
+    if (playerNumber === "1") {
+      playerOne.name = name;
+    } else if (playerNumber === "2") {
+      playerTwo.name = name;
+    }
+
+    _updatePlayerHeaders();
+  }
 
   function displayChangeNameForm(playerNumber) {
     document.getElementById("change_name_player_number").value = playerNumber;
@@ -40,6 +53,14 @@ const displayController = (function () {
   function hideChangeNameForm() {
     document.getElementById("change_name_form_container").style.display =
       "none";
+  }
+
+  function _updatePlayerHeaders() {
+    let playerOneHeader = document.getElementById("player_one");
+    let playerTwoHeader = document.getElementById("player_two");
+
+    playerOneHeader.innerHTML = playerOne.name;
+    playerTwoHeader.innerHTML = playerTwo.name;
   }
 })();
 
@@ -57,3 +78,6 @@ const changePlayerTwoNameBtn = document
 const cancelChangeNameBtn = document
   .getElementById("cancel_change_name_btn")
   .addEventListener("click", displayController.hideChangeNameForm);
+const submitChangeNameBtn = document
+  .getElementById("submit_change_name_btn")
+  .addEventListener("click", displayController.updatePlayerName);
