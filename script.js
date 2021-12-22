@@ -23,17 +23,37 @@ const playerFactory = (name, type) => {
 const playerOne = playerFactory("Player One", "X");
 const playerTwo = playerFactory("Player Two", "O");
 
-// Display module
+// display module
 
 const displayController = (function () {
-  const displayPlayerNames = function () {
-    const playerOneHeader = document.getElementById("player_one");
-    const playerTwoHeader = document.getElementById("player_two");
-    playerOneHeader.appendChild(document.createTextNode(playerOne.name));
-    playerTwoHeader.appendChild(document.createTextNode(playerTwo.name));
+  return {
+    displayChangeNameForm,
+    hideChangeNameForm,
   };
 
-  return { displayPlayerNames: displayPlayerNames };
+  function displayChangeNameForm(playerNumber) {
+    document.getElementById("change_name_player_number").value = playerNumber;
+    document.getElementById("change_name_form_container").style.display =
+      "block";
+  }
+
+  function hideChangeNameForm() {
+    document.getElementById("change_name_form_container").style.display =
+      "none";
+  }
 })();
 
-displayController.displayPlayerNames();
+// Listeners
+const changePlayerOneNameBtn = document
+  .getElementById("player_one_change_name_btn")
+  .addEventListener("click", function () {
+    displayController.displayChangeNameForm(1);
+  });
+const changePlayerTwoNameBtn = document
+  .getElementById("player_two_change_name_btn")
+  .addEventListener("click", function () {
+    displayController.displayChangeNameForm(2);
+  });
+const cancelChangeNameBtn = document
+  .getElementById("cancel_change_name_btn")
+  .addEventListener("click", displayController.hideChangeNameForm);
