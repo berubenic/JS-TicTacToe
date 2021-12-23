@@ -4,13 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>HTML 5 Boilerplate</title>
+    <title>TicTacToe</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1 class="title">Tic Tac Toe</h1>
+    <h1 class="title drawn">Tic Tac Toe</h1>
     <div class="form-popup" id="change_name_form_container">
-      <label for="name"
+      <label class="label" for="name"
         >Name:
         <input type="text" name="Name" id="name" placeholder="Name" />
       </label>
@@ -20,17 +26,21 @@
         name="playerNumber"
         value=""
       />
-      <button id="submit_change_name_btn">Change Name</button>
-      <button id="cancel_change_name_btn">Cancel</button>
+      <button class="button" id="submit_change_name_btn">Change Name</button>
+      <button class="button" id="cancel_change_name_btn">Cancel</button>
     </div>
     <div class="player-info-container">
       <div class="player-card">
-        <h2 id="player_one">Player One</h2>
-        <button id="player_one_change_name_btn">Change Player One name</button>
+        <h2 id="player_one" class="drawn">Player One</h2>
+        <button class="button" id="player_one_change_name_btn">
+          Change Player One name
+        </button>
       </div>
       <div class="player-card">
-        <h2 id="player_two">Player Two</h2>
-        <button id="player_two_change_name_btn">Change Player Two name</button>
+        <h2 id="player_two" class="drawn">Player Two</h2>
+        <button class="button" id="player_two_change_name_btn">
+          Change Player Two name
+        </button>
       </div>
     </div>
 

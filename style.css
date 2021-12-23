@@ -1,11 +1,17 @@
+body {
+  font-family: "Roboto Slab", serif;
+  background-color: #457b9d;
+}
+
 .title {
   text-align: center;
+  color: #f1faee;
 }
 
 .player-info-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .player-card {
@@ -25,11 +31,17 @@
   text-align: center;
 }
 
+.label > * {
+  margin: 0.5em;
+}
+
 .game-container {
+  width: 18em;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  margin: 1em;
+  margin: 0 auto;
+  background-color: #f1faee;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .row {
@@ -44,6 +56,19 @@
   align-items: center;
   width: 6em;
   height: 6em;
-  border: 1px solid black;
+  border: 1.6px solid #a8dadc;
   text-align: center;
+  color: #457b9d;
+}
+
+.cell:hover {
+  background-color: #a8dadc;
+}
+
+.button {
+  color: #1d3557;
+}
+
+.reset {
+  color: #e63946;
 }

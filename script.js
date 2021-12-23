@@ -168,7 +168,6 @@ const gameController = (function () {
 
   function gameWon() {
     player = currentPlayer();
-    console.log(player);
     announcementHeader.innerHTML = `Boom! ${player.name} wins!`;
   }
 })();
