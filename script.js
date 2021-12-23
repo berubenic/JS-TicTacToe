@@ -62,21 +62,21 @@ const gameBoard = (function () {
 
   function _isRowWin(winningType) {
     for (let rowIndex = 0; rowIndex < board.length; rowIndex++) {
-      let row = board[rowIndex].children;
-      if (innerLoop(row)) {
+      cells = board[rowIndex].children;
+      if (innerLoop(winningType, cells)) {
         return true;
       }
     }
-    function innerLoop(row) {
-      for (let cellIndex = 0; cellIndex < row.length; cellIndex++) {
-        let cell = board[cellIndex];
-        if (cell.innerHTML !== winningType) {
+    return false;
+
+    function innerLoop(winningType, cells) {
+      for (let cellIndex = 0; cellIndex < cells.length; cellIndex++) {
+        if (cells[cellIndex].innerHTML !== winningType) {
           return false;
         }
       }
       return true;
     }
-    return false;
   }
 
   function _isColWin(winningType) {
